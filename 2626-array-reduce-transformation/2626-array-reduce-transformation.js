@@ -5,5 +5,9 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-      return nums.reverse().reduceRight((val, num) => fn(val, num), init);
+  let val = init;
+  for (const num of nums) {
+    val = fn(val, num);
+  }
+  return val;
 };
