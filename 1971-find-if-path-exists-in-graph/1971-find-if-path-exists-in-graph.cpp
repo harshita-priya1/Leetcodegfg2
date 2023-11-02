@@ -14,7 +14,7 @@ public:
             int curr = q.front();
             q.pop();
             if(curr==d) return true;
-            for(auto &it: m[curr]){
+            for(auto it: m[curr]){
                 if(!vis[it]){
                     vis[it]=true;
                     q.push(it);
@@ -26,26 +26,3 @@ public:
 };
 
 
-// unordered_map<int,vector<int>> graph; 
-//         for(auto e : edges) {
-//             graph[e[0]].push_back(e[1]);
-//             graph[e[1]].push_back(e[0]);
-//         }
-//         vector<bool> visited(n,0);        
-//         queue<int> q;
-//         q.push(start);
-//         visited[start] = 1; 
-//         while(!q.empty()) {
-//             int curr = q.front();
-//             q.pop();
-//             if(curr == end)
-//                 return 1; 
-//             for(auto &node : graph[curr]){
-//                 if(!visited[node]){
-//                     visited[node] = 1; 
-//                     q.push(node);
-//                 }
-//             }
-//         }
-        
-//         return false;
