@@ -12,7 +12,50 @@
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        if(root==NULL) return 0;
-        return max((1+maxDepth(root->left)),(1+maxDepth(root->right)));
+        // queue<TreeNode*>q;
+        // int depth=0;
+        // q.push(root);
+        // while(!q.empty()){
+        //     TreeNode* node = q.front();
+        //     q.pop();
+        //     if(node->left)q.push(node->left);
+        //     if(node->right)q.push(node->right);
+        // }
+            if (!root) {
+        return 0;
+    }
+
+    queue<TreeNode*> q;
+    q.push(root);
+
+    int height = 0;
+
+    while (!q.empty()) {
+        int nodeCount = q.size();
+
+        // Process all nodes at the current level
+        while (nodeCount > 0) {
+            TreeNode* current = q.front();
+            q.pop();
+
+            // Enqueue the left child if it exists
+            if (current->left) {
+                q.push(current->left);
+            }
+
+            // Enqueue the right child if it exists
+            if (current->right) {
+                q.push(current->right);
+            }
+
+            nodeCount--;
+        }
+
+        // Increment the height after processing all nodes at the current level
+        height++;
+    }
+
+    return height;
+
     }
 };
