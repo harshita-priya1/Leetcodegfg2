@@ -5,9 +5,10 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-  let val = init;
-  for (const num of nums) {
-    val = fn(val, num);
-  }
-  return val;
+    var ans=init;
+    if(!nums.length) return ans;
+    for(i in nums){
+        ans=fn(ans,nums[i]);
+    }
+    return ans;
 };
