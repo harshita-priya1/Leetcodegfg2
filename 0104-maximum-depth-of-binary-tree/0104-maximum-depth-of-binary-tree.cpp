@@ -21,41 +21,42 @@ public:
         //     if(node->left)q.push(node->left);
         //     if(node->right)q.push(node->right);
         // }
-            if (!root) {
+    if (root==NULL) {
         return 0;
     }
+        return 1+max(maxDepth(root->left),maxDepth(root->right));
 
-    queue<TreeNode*> q;
-    q.push(root);
+//     queue<TreeNode*> q;
+//     q.push(root);
 
-    int height = 0;
+//     int height = 0;
 
-    while (!q.empty()) {
-        int nodeCount = q.size();
+//     while (!q.empty()) {
+//         int nodeCount = q.size();
 
         // Process all nodes at the current level
-        while (nodeCount > 0) {
-            TreeNode* current = q.front();
-            q.pop();
+        // while (nodeCount > 0) {
+        //     TreeNode* current = q.front();
+        //     q.pop();
 
             // Enqueue the left child if it exists
-            if (current->left) {
-                q.push(current->left);
-            }
+            // if (current->left) {
+            //     q.push(current->left);
+            // }
 
             // Enqueue the right child if it exists
-            if (current->right) {
-                q.push(current->right);
-            }
+//             if (current->right) {
+//                 q.push(current->right);
+//             }
 
-            nodeCount--;
-        }
+//             nodeCount--;
+//         }
 
         // Increment the height after processing all nodes at the current level
-        height++;
-    }
+    //     height++;
+    // }
 
-    return height;
+    // return height;
 
     }
 };
