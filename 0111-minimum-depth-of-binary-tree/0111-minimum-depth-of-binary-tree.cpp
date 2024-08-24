@@ -11,14 +11,14 @@
  */
 class Solution {
 public:
+    int solve(TreeNode* root) {
+        if(root->left==NULL && root->right==NULL) return 1;
+        if(root->left==NULL) return 1+solve(root->right);
+        if(root->right==NULL) return 1+solve(root->left);
+        return 1+ min(solve(root->left), solve(root->right));
+    }
     int minDepth(TreeNode* root) {
         if(root==NULL) return 0;
-        int l = minDepth(root->left);
-        int r = minDepth(root->right);
-        if(root->left==NULL && root->right==NULL) return 1;
-        if(root->left==NULL) return 1+r;
-        if(root->right==NULL) return 1+l;
-        return 1+min(r,l);
-
+        return solve(root);
     }
 };
